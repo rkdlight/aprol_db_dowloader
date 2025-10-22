@@ -33,7 +33,6 @@ class DB:
             self.connect()
             cursor = self.connection.cursor()
             start_value_sql = f"SELECT ts, value FROM Trend WHERE pv = '{trend_name}' AND ts <= '{fmt_date(start_date)}' ORDER BY ts DESC LIMIT 1;"
-            "SELECT value FROM Trend WHERE pv = ? AND ts >= '2025-09-20 06:00:00' ORDER BY ts DESC LIMIT 1;"
             cursor.execute(start_value_sql)
             start_value = cursor.fetchone()
             period_value_sql = f"""
